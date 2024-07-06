@@ -1,4 +1,4 @@
-CREATE PROCEDURE [MTG].[UpdateMTGCollection]
+create   PROCEDURE [MTG].[UpdateMTGCollection]
     @userID INT,
     @json NVARCHAR(MAX)
 
@@ -18,8 +18,8 @@ BEGIN
     DECLARE @existing INT = (
         SELECT COUNT(1)
         FROM #temp AS t
-        JOIN [MTG].[Set] AS s ON s.[shorthand] = t.[SetCode]
-        JOIN [MTG].[Card] AS c ON c.[card_set_id] = s.[id] AND c.[collector_number] = t.[Card]
+        JOIN [MTG].[Set] AS s ON s.shorthand = t.SetCode
+        JOIN [MTG].[Card] AS c ON c.card_set_id = s.id AND c.collector_number = t.Card
     )
 
     IF @existing != (SELECT COUNT(1) FROM #temp)
@@ -32,8 +32,8 @@ BEGIN
     USING (
             SELECT c.id AS [CardID], [Change]
             FROM #temp AS t
-            JOIN [MTG].[Set] AS s ON s.[shorthand] = t.[SetCode]
-            JOIN [MTG].[Card] AS c ON c.[card_set_id] = s.[id] AND c.[collector_number] = t.[Card]
+            JOIN [MTG].[Set] AS s ON s.shorthand = t.SetCode
+            JOIN [MTG].[Card] AS c ON c.card_set_id = s.id AND c.collector_number = t.Card
         ) AS cv ON ccm.UserID = @userID AND cv.CardID = ccm.CardID
     WHEN MATCHED THEN
         UPDATE SET [Count] = [Count] + cv.[Change]

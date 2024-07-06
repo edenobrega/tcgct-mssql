@@ -73,6 +73,7 @@
   <ItemGroup>
     <Build Include="Account\StoredProcedures\TryCreateAccount.sql" />
     <Build Include="MTG\StoredProcedures\DumpData.sql" />
+    <Build Include="MTG\StoredProcedures\GetSets.sql" />
     <Build Include="MTG\StoredProcedures\StringAggGroupExample.sql" />
     <Build Include="MTG\StoredProcedures\UpdateMTGCollection.sql" />
     <Build Include="MTG\Tables\Card.sql" />
@@ -81,6 +82,7 @@
     <Build Include="MTG\Tables\CardType.sql" />
     <Build Include="MTG\Tables\CollectedCards.sql" />
     <Build Include="MTG\Tables\Layout.sql" />
+    <Build Include="MTG\Tables\PinnedSet.sql" />
     <Build Include="MTG\Tables\Rarity.sql" />
     <Build Include="MTG\Tables\Set.sql" />
     <Build Include="MTG\Tables\SetType.sql" />
@@ -92,7 +94,6 @@
     <Build Include="Security\TCGCT.sql" />
     <Build Include="TCGCT\StoredProcedures\CreateDefaultSettings.sql" />
     <Build Include="TCGCT\Tables\Games.sql" />
-    <Build Include="TCGCT\Tables\PinnedSet.sql" />
     <Build Include="TCGCT\Tables\Settings.sql" />
   </ItemGroup>
   <ItemGroup>
